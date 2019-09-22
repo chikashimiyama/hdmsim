@@ -37,12 +37,33 @@ class ComponentFactory
         );
     }
 
+    createGizmo()
+    {
+        let gizmoGroup = new Three.Group();
+        gizmoGroup.add(this.createLine(new Three.Vector3(0, 0,-25), new Three.Vector3(0, 0, 25), 0x00FF00));
+        gizmoGroup.add(this.createLine(new Three.Vector3(0, -25,0), new Three.Vector3(0, 25, 0), 0x0000FF));
+        gizmoGroup.add(this.createLine(new Three.Vector3(-25, 0,0), new Three.Vector3(25, 0, 0), 0xFF0000));
+        return gizmoGroup;
+    }
+
+    createLine(startPos, endPos, color){
+        let material = new Three.LineBasicMaterial({
+            color: color
+        });
+
+        let geometry = new Three.Geometry();
+        geometry.vertices.push(startPos, endPos);
+
+        return new Three.Line( geometry, material );
+    }
+
     createRenderer(){
         let renderer = new Three.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
         renderer.setClearColor(0x999999);
         return renderer;
     }
+
 }
 
 module.exports = ComponentFactory;

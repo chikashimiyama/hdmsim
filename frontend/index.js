@@ -5,8 +5,11 @@ let scene = componentFactory.createScene();
 let camera = componentFactory.createCamera();
 let light = componentFactory.createDirectionalLight();
 let renderer = componentFactory.createRenderer();
+let gizmo = componentFactory.createGizmo();
+
 scene.add(camera);
 scene.add(light);
+scene.add(gizmo);
 
 document.body.appendChild( renderer.domElement );
 componentFactory.createHeadModel(scene);
