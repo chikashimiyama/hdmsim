@@ -5,18 +5,14 @@
     <title>HMD Simulator</title>
 </head>
 <body>
-<h1>Head Tracking Simulator</h1>
-<p>Sending Simulated head-tracking osc message to the specified port and host</p>
 <div>
     <form>
         <label>Host
             <input type="text" name="host">
         </label>
-        <br/>
         <label>Port
             <input type="number" name="port">
         </label>
-        <br/>
         <label>Connect
             <input type="button" name="connect">
         </label>
@@ -25,7 +21,9 @@
 <div id="canvas">
 </div>
 
+<script src="frontend/user_input.js"></script>
 <script src="frontend/component_factory.js"></script>
+<script src="frontend/app.js"></script>
 <script src="frontend/index.js"></script>
 </body>
 </html>

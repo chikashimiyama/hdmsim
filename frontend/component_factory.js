@@ -11,7 +11,7 @@ class ComponentFactory
     createCamera(){
         let aspect = window.innerWidth/window.innerHeight;
         let camera = new Three.PerspectiveCamera( 75, aspect, 0.1, 1000 );
-        camera.position.z = 30;
+        camera.position.z = 20;
         return camera;
     }
 
@@ -21,20 +21,36 @@ class ComponentFactory
         return light;
     }
 
-    createHeadModel(scene){
+    createHeadModel(onLoad)
+    {
         let loader = new Three.OBJLoader();
+
         loader.load(
             'frontend/asset/head.obj',
-            ( object ) => {
-                object.traverse( function ( child ) {
-                    if ( child.isMesh ) child.material = new Three.MeshStandardMaterial();
-                } );
-                object.rotateX(-90);
-                object.position.set(0, -8.5, 0);
-                scene.add( object );
+            (object) =>
+            {
+                object.traverse(function (child)
+                {
+                    if (child.isMesh){
+                        child.material = new Three.MeshStandardMaterial();
+                        let box = new Three.Box3().setFromObject( child );
+                        box.center( child.position );
+                        child.position.multiplyScalar( - 1 );
+                        let pivot = new Three.Group();
+                        pivot.rotateX(-90);
+                        pivot.add( object );
+                        onLoad(pivot);
+                    }
+                });
             },
-            ( xhr ) => { console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );},
-            ( error ) => { console.log( 'An error happened' );}
+            (xhr) =>
+            {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            (error) =>
+            {
+                console.log('An error happened');
+            }
         );
     }
 
@@ -65,6 +81,9 @@ class ComponentFactory
         return renderer;
     }
 
+    createUserInput() {
+        return new UserInput();
+    }
 }
 
 module.exports = ComponentFactory;
