@@ -30,6 +30,7 @@ class ComponentFactory
                     if ( child.isMesh ) child.material = new Three.MeshStandardMaterial();
                 } );
                 object.rotateX(-90);
+                object.position.set(0, -8.5, 0);
                 scene.add( object );
             },
             ( xhr ) => { console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );},
