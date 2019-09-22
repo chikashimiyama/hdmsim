@@ -1,0 +1,17 @@
+{
+  "name": "hdmsim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^6.0.10",
+    "osc-emitter": "^1.0.4",
+    "three": "^0.108.0"
+  }
+}
