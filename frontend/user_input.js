@@ -1,5 +1,3 @@
-
-
 class UserInput
 {
     onMouseDragged = null;

@@ -1,7 +1,3 @@
-const Three = require("three");
-let ObjLoader = require("three-obj-loader");
-ObjLoader(Three);
-
 class ComponentFactory
 {
     createScene(){
@@ -76,7 +72,7 @@ class ComponentFactory
 
     createRenderer(){
         let renderer = new Three.WebGLRenderer();
-        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setSize( 500, 500 );
         renderer.setClearColor(0x999999);
         return renderer;
     }
@@ -84,6 +80,12 @@ class ComponentFactory
     createUserInput() {
         return new UserInput();
     }
+
+    createTextPresenter(matrixText, eulerText){
+        return new TextPresenter(matrixText, eulerText);
+    }
+
+
 }
 
 module.exports = ComponentFactory;
