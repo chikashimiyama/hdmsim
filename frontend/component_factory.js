@@ -7,7 +7,10 @@ class ComponentFactory
     createCamera(){
         let aspect = window.innerWidth/window.innerHeight;
         let camera = new Three.PerspectiveCamera( 75, aspect, 0.1, 1000 );
+        camera.position.x = 20;
         camera.position.z = 20;
+        camera.position.y = 20;
+        camera.lookAt(new Three.Vector3(0, 0,0 ));
         return camera;
     }
 
@@ -53,9 +56,9 @@ class ComponentFactory
     createGizmo()
     {
         let gizmoGroup = new Three.Group();
-        gizmoGroup.add(this.createLine(new Three.Vector3(0, 0,-25), new Three.Vector3(0, 0, 25), 0x00FF00));
-        gizmoGroup.add(this.createLine(new Three.Vector3(0, -25,0), new Three.Vector3(0, 25, 0), 0x0000FF));
-        gizmoGroup.add(this.createLine(new Three.Vector3(-25, 0,0), new Three.Vector3(25, 0, 0), 0xFF0000));
+        gizmoGroup.add(this.createLine(new Three.Vector3(0, 0,-50), new Three.Vector3(0, 0, 50), 0x00FF00));
+        gizmoGroup.add(this.createLine(new Three.Vector3(0, -50,0), new Three.Vector3(0, 50, 0), 0x0000FF));
+        gizmoGroup.add(this.createLine(new Three.Vector3(-50, 0,0), new Three.Vector3(50, 0, 0), 0xFF0000));
         return gizmoGroup;
     }
 

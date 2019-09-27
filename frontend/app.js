@@ -25,11 +25,9 @@ class App
                 obj.rotateZ(Three.Math.degToRad(delta.x*0.03));
                 obj.rotateX(Three.Math.degToRad(delta.y*0.03));
                 textPresenter.update(obj);
-                Electron.ipcRenderer.send("/headrotation", obj.matrix.toArray());
+                Electron.ipcRenderer.send("/spatcon/rotationmatrix", obj.matrix.toArray());
             };
         });
-
-
 
         let animate = function () {
             requestAnimationFrame( animate );

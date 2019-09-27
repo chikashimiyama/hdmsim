@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "electron": "^6.0.10",
-    "osc-emitter": "^1.0.4",
+    "oscsocket": "^0.1.8",
     "three": "^0.108.0",
     "three-obj-loader": "^1.1.3"
   }
