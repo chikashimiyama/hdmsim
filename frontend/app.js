@@ -16,6 +16,8 @@ class App
         scene.add(light);
         scene.add(gizmo);
 
+        
+
         let userInput = componentFactory.createUserInput();
 
         document.querySelector('#canvas').appendChild( renderer.domElement );

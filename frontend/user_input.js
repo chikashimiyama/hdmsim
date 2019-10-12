@@ -1,6 +1,6 @@
 class UserInput
 {
-    onMouseDragged = null;
+    onMouseDragged_ = null;
     dragging_ = false;
     origin = null;
 
@@ -21,9 +21,9 @@ class UserInput
             {
                 let current = new Three.Vector2(event.screenX, event.screenY);
                 let delta = new Three.Vector2(current.x - this.origin.x, current.y - this.origin.y);
-                if(this.onMouseDragged)
+                if(this.onMouseDragged_)
                 {
-                    this.onMouseDragged(delta);
+                    this.onMouseDragged_(delta);
                 }
             }
         })

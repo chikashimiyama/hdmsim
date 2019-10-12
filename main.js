@@ -1,9 +1,12 @@
 const { app, BrowserWindow, ipcMain} = require('electron');
 const osc = require('oscsocket');
+const pinger = require('./pinger.js');
 const sock = new osc.OSCSocket();
 
 let win;
-function createWindow () {
+let daemon;
+
+app.on('ready', ()=>{
     win = new BrowserWindow({
         width: 800,
         height: 800,
@@ -20,12 +23,14 @@ function createWindow () {
     win.on('closed', () => {
         win = null
     })
-}
 
-app.on('ready', createWindow);
+    daemon = new pinger.Pinger(sock);
+    daemon.start();
+});
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
+        daemon.stop();
         app.quit()
     }
 });
@@ -45,6 +50,6 @@ ipcMain.on('/spatcon/rotationmatrix', (event, data) => {
       msg.addArgument("f", data[i]);
   }
 
-  sock.send(msg, 8000, "127.0.0.1");
-
+  sock.send(msg, 7001, "127.0.0.1");
 });
+

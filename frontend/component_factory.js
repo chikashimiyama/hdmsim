@@ -88,6 +88,9 @@ class ComponentFactory
         return new TextPresenter(matrixText, eulerText);
     }
 
+    createPingSender(){
+        return new PingSender();
+    }
 
 }
 
