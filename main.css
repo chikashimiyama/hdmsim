@@ -29,3 +29,16 @@ body {
     width: 500px;
     height: 500px;
 }
+
+#controller {
+    margin-top: 20px;
+}
+
+.slider {
+    width: 80%;
+}
+
+.slider_label {
+    width: 40px;
+    display: inline-block;
+}

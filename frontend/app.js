@@ -4,6 +4,10 @@ class App
         let matrixText = document.querySelector('#matrix');
         let eulerText = document.querySelector('#euler');
 
+        let yawSlider = document.querySelector('#yaw');
+        let pitchSlider = document.querySelector('#pitch');
+        let rollSlider = document.querySelector('#roll');
+
         let componentFactory = new ComponentFactory();
         let scene = componentFactory.createScene();
         let camera = componentFactory.createCamera();
@@ -16,9 +20,12 @@ class App
         scene.add(light);
         scene.add(gizmo);
 
-        
-
         let userInput = componentFactory.createUserInput();
+
+        yawSlider.oninput = ()=>{
+            console.log(yawSlider.value);
+        };
+
 
         document.querySelector('#canvas').appendChild( renderer.domElement );
         componentFactory.createHeadModel((obj)=>{

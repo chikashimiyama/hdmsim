@@ -6,22 +6,24 @@
     <title>HMD Simulator</title>
 </head>
 <body>
-<div>
-    <form>
-        <label>Host
-            <input type="text" name="host">
-        </label>
-        <label>Port
-            <input type="number" name="port">
-        </label>
-        <label>Connect
-            <input type="button" name="connect">
-        </label>
-    </form>
-</div>
 <div id="canvas">
     <div id="matrix">Matrix</div>
     <div id="euler">Euler</div>
+</div>
+<div id="controller">
+    <form>
+        <label class="slider_label" for="yaw">Yaw</label>
+        <input type="range" min="-180" max="180" value="0" class="slider" id="yaw" name="yaw">
+    </form>
+    <form>
+        <label class="slider_label" for="pitch">Pitch</label>
+        <input type="range" min="-180" max="180" value="0" class="slider" id="pitch" name="pitch">
+    </form>
+    <form>
+        <label class="slider_label" for="roll">Roll</label>
+        <input type="range" min="-180" max="180" value="0" class="slider" id="roll" name="roll">
+    </form>
+
 </div>
 <script src="frontend/inclusion.js"></script>
 <script src="frontend/text_presenter.js"></script>
