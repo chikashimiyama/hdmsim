@@ -1,31 +1,44 @@
 class UserInput
 {
-    onMouseDragged_ = null;
-    dragging_ = false;
-    origin = null;
+    yawSlider = null;
+    pitchSlider = null;
+    rollSlider = null;
+    update = null;
 
-    constructor()
+    heading = null;
+
+    constructor(headObj, textPresenter)
     {
+        this.heading = {"yaw" : 0, "pitch" : 0, "roll" : 0};
 
-        window.addEventListener('mousedown', event=>{
-            this.dragging_ = true;
-            this.origin = new Three.Vector2(event.screenX, event.screenY);
-        });
+        this.yawSlider = document.querySelector('#yaw');
+        this.pitchSlider = document.querySelector('#pitch');
+        this.rollSlider = document.querySelector('#roll');
 
-        window.addEventListener('mouseup', event=>{
-            this.dragging_ = false;
-        });
+        let that = this;
 
-        window.addEventListener('mousemove', event=>{
-            if(this.dragging_)
-            {
-                let current = new Three.Vector2(event.screenX, event.screenY);
-                let delta = new Three.Vector2(current.x - this.origin.x, current.y - this.origin.y);
-                if(this.onMouseDragged_)
-                {
-                    this.onMouseDragged_(delta);
-                }
-            }
-        })
+        this.update = ()=>{
+            let pitch = parseFloat(this.pitchSlider.value);
+            let yaw = parseFloat(this.yawSlider.value);
+            let roll = parseFloat(this.rollSlider.value);
+
+            let x = Three.Math.degToRad(pitch);
+            let y = Three.Math.degToRad(roll);
+            let z = Three.Math.degToRad(-yaw);
+            headObj.rotation.set(x,y,z);
+
+            textPresenter.update(headObj);
+        };
+        this.yawSlider.oninput = ()=>{
+            that.update();
+        };
+        this.pitchSlider.oninput = ()=>{
+            that.update();
+        };
+        this.rollSlider.oninput = ()=>{
+            that.update();
+        };
+
+        this.update();
     }
 }

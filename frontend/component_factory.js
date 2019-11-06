@@ -36,7 +36,6 @@ class ComponentFactory
                         box.center( child.position );
                         child.position.multiplyScalar( - 1 );
                         let pivot = new Three.Group();
-                        pivot.rotateX(-90);
                         pivot.add( object );
                         onLoad(pivot);
                     }
@@ -80,8 +79,8 @@ class ComponentFactory
         return renderer;
     }
 
-    createUserInput() {
-        return new UserInput();
+    createUserInput(headObj, textPresenter){
+        return new UserInput(headObj, textPresenter);
     }
 
     createTextPresenter(matrixText, eulerText){
