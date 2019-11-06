@@ -6,15 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "build": {
+    "extraResources": ["./extraResources/head.obj"]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "electron": "^7.1.0",
+    "electron-packager": "^14.1.0",
     "oscsocket": "^0.1.8",
     "three": "^0.108.0",
     "three-obj-loader": "^1.1.3"
   },
-  "devDependencies": {
-    "electron": "^6.1.4"
-  }
+  "devDependencies": {}
 }

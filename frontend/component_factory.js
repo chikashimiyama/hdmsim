@@ -23,9 +23,10 @@ class ComponentFactory
     createHeadModel(onLoad)
     {
         let loader = new Three.OBJLoader();
+        let headObjPath = __dirname + '/extraResources/head.obj';
 
         loader.load(
-            'frontend/asset/head.obj',
+            headObjPath,
             (object) =>
             {
                 object.traverse(function (child)

@@ -28,14 +28,18 @@ body {
 #canvas {
     width: 500px;
     height: 500px;
+    margin: auto;
+    max-width: 550px;
 }
 
 #controller {
-    margin-top: 20px;
+    padding-top: 10px;
+    margin: 0 auto;
+    max-width: 500px;
 }
 
 .slider {
-    width: 80%;
+    width: 100%;
 }
 
 .slider_label {

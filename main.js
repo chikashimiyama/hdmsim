@@ -8,9 +8,9 @@ let daemon;
 
 app.on('ready', ()=>{
     win = new BrowserWindow({
-        width: 800,
-        height: 800,
-        //resizable: false,
+        width: 550,
+        height: 670,
+        resizable: false,
         webPreferences: {
             nodeIntegration: true
         }
@@ -18,7 +18,7 @@ app.on('ready', ()=>{
 
     win.loadFile('index.html');
 
-    win.webContents.openDevTools();
+    //win.webContents.openDevTools();
 
     win.on('closed', () => {
         win = null
