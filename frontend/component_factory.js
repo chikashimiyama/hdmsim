@@ -35,6 +35,7 @@ class ComponentFactory
                         let box = new Three.Box3().setFromObject( child );
                         box.center( child.position );
                         child.position.multiplyScalar( - 1 );
+                        object.rotateX(Three.Math.degToRad(-90));
                         let pivot = new Three.Group();
                         pivot.add( object );
                         onLoad(pivot);
@@ -86,11 +87,6 @@ class ComponentFactory
     createTextPresenter(matrixText, eulerText){
         return new TextPresenter(matrixText, eulerText);
     }
-
-    createPingSender(){
-        return new PingSender();
-    }
-
 }
 
 module.exports = ComponentFactory;

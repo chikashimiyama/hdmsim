@@ -45,7 +45,8 @@ class TextPresenter
         array.pop();
         const len = array.length;
         for(let i = 0; i < len; i++){
-            array[i] = array[i].toFixed(2);
+            array[i] = Three.Math.radToDeg(array[i]);
+            array[i] = array[i].toFixed(1);
         }
         return array;
     }

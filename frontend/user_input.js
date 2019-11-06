@@ -1,3 +1,5 @@
+const { ipcRenderer } = Electron;
+
 class UserInput
 {
     yawSlider = null;
@@ -23,10 +25,11 @@ class UserInput
             let roll = parseFloat(this.rollSlider.value);
 
             let x = Three.Math.degToRad(pitch);
-            let y = Three.Math.degToRad(roll);
-            let z = Three.Math.degToRad(-yaw);
+            let y = Three.Math.degToRad(-yaw);
+            let z = Three.Math.degToRad(roll);
             headObj.rotation.set(x,y,z);
 
+            ipcRenderer.send("/spatcon/rotationmatrix", headObj.matrix.toArray());
             textPresenter.update(headObj);
         };
         this.yawSlider.oninput = ()=>{
