@@ -18,7 +18,7 @@
   "dependencies": {
     "electron": "^17.0.1",
     "oscsocket": "^0.1.8",
-    "three": "^0.124.0",
+    "three": "^0.125.0",
     "three-obj-loader": "^1.1.3"
   }
 }
