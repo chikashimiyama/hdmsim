@@ -12,7 +12,8 @@ app.on('ready', ()=>{
         height: 670,
         resizable: false,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            contextIsolation: false
         }
     });
 
