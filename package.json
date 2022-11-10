@@ -16,7 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^17.0.1",
+    "electron": "^18.3.7",
     "oscsocket": "^0.1.8",
     "three": "^0.124.0",
     "three-obj-loader": "^1.1.3"
